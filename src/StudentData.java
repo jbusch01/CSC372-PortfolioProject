@@ -10,9 +10,8 @@ public class StudentData {
         Scanner scnr = new Scanner(System.in);
         int nextID = 1; // Starting studentID at 1
 
-        System.out.println("Please enter the student's information. Type 'done' to finish.");
-
         while (true) {
+            System.out.println("Please enter the student's information. Type 'done' to finish.\n");
             System.out.println("Student Name:");
             String name = scnr.nextLine().trim();
             if (name.equalsIgnoreCase("done")) {
@@ -38,7 +37,7 @@ public class StudentData {
                 }
             }
 
-            studentList.add(new Student(name, address, gpa, 0));
+            studentList.add(new Student(name, address, gpa, nextID));
             nextID++;
 
             System.out.println("Student added successfully!\n");;
