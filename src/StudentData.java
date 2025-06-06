@@ -4,22 +4,24 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Collections;
 import java.util.Comparator;
-
 public class StudentData {
     public static void main(String[] args) {
         LinkedList<Student> studentList = new LinkedList<>();
         Scanner scnr = new Scanner(System.in);
+        int nextID = 1; // Starting studentID at 1
 
-        System.out.println("Please enter the student's information, or type 'done' to finish.");
+        System.out.println("Please enter the student's information. Type 'done' to finish.");
+
         while (true) {
-            System.out.println("Student First Name:");
+            System.out.println("Student Name:");
             String name = scnr.nextLine().trim();
             if (name.equalsIgnoreCase("done")) {
                 break;
             }
 
-            System.out.println("Street address:");
+            System.out.println("Address:");
             String address = scnr.nextLine().trim();
+
             double gpa = -1;
             while (true) {
                 System.out.println("Enter Students GPA (0.0 - 4.0): ");
@@ -36,19 +38,25 @@ public class StudentData {
                 }
             }
 
-            studentList.add(new Student(name, address, gpa));
+            studentList.add(new Student(name, address, gpa, 0));
+            nextID++;
+
             System.out.println("Student added successfully!\n");;
         }
 
-        Collections.sort(studentList, Comparator.comparing(Student::getFirstName));
+        // List Sorter
+        Collections.sort(studentList, Comparator.comparing(Student::getName));
 
-        try (FileWriter writer = new FileWriter("students.txt"(( {
+        // File writer
+        try (FileWriter writer = new FileWriter("students.txt")) {
             for (Student s : studentList) {
+                writer.write("Student ID: " + s.getStudentID() + "\n");
                 writer.write("Name: " + s.getName() + "\n");
                 writer.write("Address: " + s.getAddress() + "\n");
                 writer.write("GPA: " + s.getGPA() + "\n");
                 writer.write("---------------------\n");
             }
+
             System.out.println("Student data saved to students.txt");
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
