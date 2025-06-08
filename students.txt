@@ -1,0 +1,15 @@
+Student ID: 2
+Name: Hailey
+Address: 326
+GPA: 4.0
+---------------------
+Student ID: 3
+Name: Jamen Wikler
+Address: 456 Dumont
+GPA: 2.5
+---------------------
+Student ID: 1
+Name: Jon
+Address: 123 Main
+GPA: 3.0
+---------------------

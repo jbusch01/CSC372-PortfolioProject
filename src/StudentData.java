@@ -11,7 +11,7 @@ public class StudentData {
         int nextID = 1; // Starting studentID at 1
 
         while (true) {
-            System.out.println("Please enter the student's information. Type 'done' to finish.\n");
+            System.out.println("\nPlease enter the student's information. Type 'done' to finish and save.\n");
             System.out.println("Student Name:");
             String name = scnr.nextLine().trim();
             if (name.equalsIgnoreCase("done")) {
